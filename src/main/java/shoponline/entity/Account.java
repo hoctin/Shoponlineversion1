@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author hieu.tpk
+ */
 @Entity
 @Table(name = "Accounts")
 public class Account implements Serializable {

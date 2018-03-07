@@ -1,42 +1,60 @@
-package shoponline.entity;
+package shoponline.model;
 
-import java.io.Serializable;
 import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import java.util.List;
 
 /**
  * @author hieu.tpk
  */
-@Entity
-@Table(name = "Orders", uniqueConstraints = { @UniqueConstraint(columnNames = "Order_Num") })
-public class Order implements Serializable {
-  private static final long serialVersionUID = -2576670215015463100L;
-  private String id;
+public class OrderInfo {
+  private String Id;
   private Date orderDate;
   private int orderNum;
   private double amount;
-
   private String customerName;
   private String customerAddress;
   private String customerEmail;
   private String customerPhone;
+  private List<OrderDetailInfo> details;
 
-  @Id
-  @Column(name = "ID", length = 50)
+  public OrderInfo() {
+
+  }
+
+  /**
+   * Using for Hibernate Query
+   * 
+   * @param id
+   * @param orderDate
+   * @param orderNum
+   * @param amount
+   * @param customerName
+   * @param customerAddress
+   * @param customerEmail
+   * @param customerPhone
+   */
+  public OrderInfo(String id, Date orderDate, int orderNum, double amount, String customerName, String customerAddress,
+      String customerEmail, String customerPhone) {
+    super();
+    Id = id;
+    this.orderDate = orderDate;
+    this.orderNum = orderNum;
+    this.amount = amount;
+    this.customerName = customerName;
+    this.customerAddress = customerAddress;
+    this.customerEmail = customerEmail;
+    this.customerPhone = customerPhone;
+
+  }
+
   public String getId() {
-    return id;
+    return Id;
   }
 
   public void setId(String id) {
-    this.id = id;
+    Id = id;
   }
 
-  @Column(name = "Order_Data", nullable = false)
   public Date getOrderDate() {
     return orderDate;
   }
@@ -45,7 +63,6 @@ public class Order implements Serializable {
     this.orderDate = orderDate;
   }
 
-  @Column(name = "Order_Num", nullable = false)
   public int getOrderNum() {
     return orderNum;
   }
@@ -54,7 +71,6 @@ public class Order implements Serializable {
     this.orderNum = orderNum;
   }
 
-  @Column(name = "Amount", nullable = false)
   public double getAmount() {
     return amount;
   }
@@ -63,7 +79,6 @@ public class Order implements Serializable {
     this.amount = amount;
   }
 
-  @Column(name = "Customer_Name", length = 255, nullable = false)
   public String getCustomerName() {
     return customerName;
   }
@@ -72,7 +87,6 @@ public class Order implements Serializable {
     this.customerName = customerName;
   }
 
-  @Column(name = "Customer_Address", length = 255, nullable = false)
   public String getCustomerAddress() {
     return customerAddress;
   }
@@ -81,7 +95,6 @@ public class Order implements Serializable {
     this.customerAddress = customerAddress;
   }
 
-  @Column(name = "Customer_Email", length = 128, nullable = false)
   public String getCustomerEmail() {
     return customerEmail;
   }
@@ -90,13 +103,20 @@ public class Order implements Serializable {
     this.customerEmail = customerEmail;
   }
 
-  @Column(name = "Customer_Phone", length = 128, nullable = false)
   public String getCustomerPhone() {
     return customerPhone;
   }
 
   public void setCustomerPhone(String customerPhone) {
     this.customerPhone = customerPhone;
+  }
+
+  public List<OrderDetailInfo> getDetails() {
+    return details;
+  }
+
+  public void setDetails(List<OrderDetailInfo> details) {
+    this.details = details;
   }
 
 }
