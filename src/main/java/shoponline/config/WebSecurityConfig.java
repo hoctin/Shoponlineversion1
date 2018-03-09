@@ -7,6 +7,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import shoponline.authentication.MyDBAuthenticationService;
+
 @Configuration
 //@EnableWebSecurity = @EnableWebMVCSecurity + Extra features
 @EnableWebSecurity
@@ -22,7 +24,6 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
 
   }
 
-  @Override
   protected void configure(HttpSecurity http) throws Exception {
 
     http.csrf().disable();
