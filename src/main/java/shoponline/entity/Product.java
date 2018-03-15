@@ -17,17 +17,18 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "Products")
 public class Product implements Serializable {
+
   private static final long serialVersionUID = -1000119078147252957L;
+
   private String code;
   private String name;
   private double price;
   private byte[] image;
 
-  //For sort
+  // For sort.
   private Date createDate;
 
   public Product() {
-
   }
 
   @Id
@@ -58,6 +59,16 @@ public class Product implements Serializable {
     this.price = price;
   }
 
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "Create_Date", nullable = false)
+  public Date getCreateDate() {
+    return createDate;
+  }
+
+  public void setCreateDate(Date createDate) {
+    this.createDate = createDate;
+  }
+
   @Lob
   @Column(name = "Image", length = Integer.MAX_VALUE, nullable = true)
   public byte[] getImage() {
@@ -66,20 +77,6 @@ public class Product implements Serializable {
 
   public void setImage(byte[] image) {
     this.image = image;
-  }
-
-  @Temporal(TemporalType.TIMESTAMP)
-  @Column(name = "Create_Data", nullable = false)
-  public Date getCreateDate() {
-    return createDate;
-  }
-
-  public void setCreateData(Date createDate) {
-    this.createDate = createDate;
-  }
-
-  public static long getSerialversionuid() {
-    return serialVersionUID;
   }
 
 }

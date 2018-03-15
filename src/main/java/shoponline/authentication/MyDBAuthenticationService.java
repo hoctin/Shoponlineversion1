@@ -22,21 +22,34 @@ public class MyDBAuthenticationService implements UserDetailsService {
   private AccountDAO accountDAO;
 
   @Override
-  public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-    Account account = accountDAO.findAccount(userName);
+  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    Account account = accountDAO.findAccount(username);
+    System.out.println("Account= " + account);
+
     if (account == null) {
-      throw new UsernameNotFoundException("User" + userName + "was not found in the database");
+      throw new UsernameNotFoundException("User " //
+          + username + " was not found in the database");
     }
+
+    // EMPLOYEE,MANAGER,..
     String role = account.getUserRole();
+
     List<GrantedAuthority> grantList = new ArrayList<GrantedAuthority>();
+
+    // ROLE_EMPLOYEE, ROLE_MANAGER
     GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + role);
+
     grantList.add(authority);
-    boolean enables = account.isActine();
+
+    boolean enabled = account.isActive();
     boolean accountNonExpired = true;
     boolean credentialsNonExpired = true;
     boolean accountNonLocked = true;
-    UserDetails userDetails = (UserDetails) new User(account.getUserName(), account.getPassword(), enables,
-        accountNonExpired, credentialsNonExpired, accountNonLocked, grantList);
+
+    UserDetails userDetails = (UserDetails) new User(account.getUserName(), //
+        account.getPassword(), enabled, accountNonExpired, //
+        credentialsNonExpired, accountNonLocked, grantList);
+
     return userDetails;
   }
 

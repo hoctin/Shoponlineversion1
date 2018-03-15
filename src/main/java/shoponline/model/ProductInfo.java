@@ -11,11 +11,10 @@ public class ProductInfo {
 
   private boolean newProduct = false;
 
-  //Upload file.
+  // Upload file.
   private CommonsMultipartFile fileData;
 
   public ProductInfo() {
-
   }
 
   public ProductInfo(Product product) {
@@ -24,13 +23,6 @@ public class ProductInfo {
     this.price = product.getPrice();
   }
 
-  /**
-   * Using in Hibernate query
-   * 
-   * @param code
-   * @param name
-   * @param price
-   */
   public ProductInfo(String code, String name, double price) {
     this.code = code;
     this.name = name;
@@ -61,14 +53,6 @@ public class ProductInfo {
     this.price = price;
   }
 
-  public boolean isNewProduct() {
-    return newProduct;
-  }
-
-  public void setNewProduct(boolean newProduct) {
-    this.newProduct = newProduct;
-  }
-
   public CommonsMultipartFile getFileData() {
     return fileData;
   }
@@ -77,4 +61,11 @@ public class ProductInfo {
     this.fileData = fileData;
   }
 
+  public boolean isNewProduct() {
+    return newProduct;
+  }
+
+  public void setNewProduct(boolean newProduct) {
+    this.newProduct = newProduct;
+  }
 }

@@ -13,9 +13,12 @@ import javax.persistence.UniqueConstraint;
  * @author hieu.tpk
  */
 @Entity
-@Table(name = "Orders", uniqueConstraints = { @UniqueConstraint(columnNames = "Order_Num") })
+@Table(name = "Orders", //
+uniqueConstraints = { @UniqueConstraint(columnNames = "Order_Num") })
 public class Order implements Serializable {
+
   private static final long serialVersionUID = -2576670215015463100L;
+
   private String id;
   private Date orderDate;
   private int orderNum;
@@ -36,7 +39,7 @@ public class Order implements Serializable {
     this.id = id;
   }
 
-  @Column(name = "Order_Data", nullable = false)
+  @Column(name = "Order_Date", nullable = false)
   public Date getOrderDate() {
     return orderDate;
   }

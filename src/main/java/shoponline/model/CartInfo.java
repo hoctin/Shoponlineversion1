@@ -7,8 +7,11 @@ import java.util.List;
  * @author hieu.tpk
  */
 public class CartInfo {
+
   private int orderNum;
+
   private CustomerInfo customerInfo;
+
   private final List<CartLineInfo> cartLines = new ArrayList<CartLineInfo>();
 
   public CartInfo() {
@@ -35,7 +38,7 @@ public class CartInfo {
     return this.cartLines;
   }
 
-  public CartLineInfo findLineByCode(String code) {
+  private CartLineInfo findLineByCode(String code) {
     for (CartLineInfo line : this.cartLines) {
       if (line.getProductInfo().getCode().equals(code)) {
         return line;
@@ -46,6 +49,7 @@ public class CartInfo {
 
   public void addProduct(ProductInfo productInfo, int quantity) {
     CartLineInfo line = this.findLineByCode(productInfo.getCode());
+
     if (line == null) {
       line = new CartLineInfo();
       line.setQuantity(0);
@@ -66,6 +70,7 @@ public class CartInfo {
 
   public void updateProduct(String code, int quantity) {
     CartLineInfo line = this.findLineByCode(code);
+
     if (line != null) {
       if (quantity <= 0) {
         this.cartLines.remove(line);
@@ -113,5 +118,7 @@ public class CartInfo {
         this.updateProduct(line.getProductInfo().getCode(), line.getQuantity());
       }
     }
+
   }
+
 }

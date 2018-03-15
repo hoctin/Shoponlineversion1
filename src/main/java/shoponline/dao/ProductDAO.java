@@ -13,5 +13,5 @@ public interface ProductDAO {
 
   public PaginationResult<ProductInfo> queryProducts(int page, int maxResult, int maxNavigationPage, String likeName);
 
-  public void save(ProductInfo productinfo);
+  public void save(ProductInfo productInfo);
 }

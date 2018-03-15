@@ -17,11 +17,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Order_Details")
 public class OrderDetail implements Serializable {
+
   private static final long serialVersionUID = 7550745928843183535L;
+
   private String id;
   private Order order;
+
   private Product product;
-  private int quality;
+  private int quanity;
   private double price;
   private double amount;
 
@@ -36,7 +39,8 @@ public class OrderDetail implements Serializable {
   }
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "ORDER_ID", nullable = false, foreignKey = @ForeignKey(name = "ORDER_DETAIL_ORD_FK"))
+  @JoinColumn(name = "ORDER_ID", nullable = false, //
+  foreignKey = @ForeignKey(name = "ORDER_DETAIL_ORD_FK"))
   public Order getOrder() {
     return order;
   }
@@ -46,7 +50,8 @@ public class OrderDetail implements Serializable {
   }
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "PRODUCT_ID", nullable = false, foreignKey = @ForeignKey(name = "ORDER_DETAIL_PROD_FK"))
+  @JoinColumn(name = "PRODUCT_ID", nullable = false, //
+  foreignKey = @ForeignKey(name = "ORDER_DETAIL_PROD_FK"))
   public Product getProduct() {
     return product;
   }
@@ -55,14 +60,16 @@ public class OrderDetail implements Serializable {
     this.product = product;
   }
 
-  public int getQuality() {
-    return quality;
+  @Column(name = "Quanity", nullable = false)
+  public int getQuanity() {
+    return quanity;
   }
 
-  public void setQuality(int quality) {
-    this.quality = quality;
+  public void setQuanity(int quanity) {
+    this.quanity = quanity;
   }
 
+  @Column(name = "Price", nullable = false)
   public double getPrice() {
     return price;
   }
@@ -71,16 +78,13 @@ public class OrderDetail implements Serializable {
     this.price = price;
   }
 
+  @Column(name = "Amount", nullable = false)
   public double getAmount() {
     return amount;
   }
 
   public void setAmount(double amount) {
     this.amount = amount;
-  }
-
-  public static long getSerialversionuid() {
-    return serialVersionUID;
   }
 
 }

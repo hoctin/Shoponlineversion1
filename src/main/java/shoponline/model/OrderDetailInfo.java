@@ -5,8 +5,10 @@ package shoponline.model;
  */
 public class OrderDetailInfo {
   private String id;
+
   private String productCode;
   private String productName;
+
   private int quanity;
   private double price;
   private double amount;
@@ -15,18 +17,8 @@ public class OrderDetailInfo {
 
   }
 
-  /**
-   * Using for Hibernate Query
-   * 
-   * @param id
-   * @param productCode
-   * @param productName
-   * @param quanity
-   * @param price
-   * @param amount
-   */
-  public OrderDetailInfo(String id, String productCode, String productName, int quanity, double price, double amount) {
-
+  public OrderDetailInfo(String id, String productCode, //
+      String productName, int quanity, double price, double amount) {
     this.id = id;
     this.productCode = productCode;
     this.productName = productName;

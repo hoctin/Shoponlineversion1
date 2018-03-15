@@ -8,6 +8,7 @@ public class CustomerInfo {
   private String address;
   private String email;
   private String phone;
+
   private boolean valid;
 
   public String getName() {
@@ -18,20 +19,20 @@ public class CustomerInfo {
     this.name = name;
   }
 
-  public String getAddress() {
-    return address;
-  }
-
-  public void setAddress(String address) {
-    this.address = address;
-  }
-
   public String getEmail() {
     return email;
   }
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  public String getAddress() {
+    return address;
+  }
+
+  public void setAddress(String address) {
+    this.address = address;
   }
 
   public String getPhone() {
@@ -49,5 +50,4 @@ public class CustomerInfo {
   public void setValid(boolean valid) {
     this.valid = valid;
   }
-
 }

@@ -27,13 +27,14 @@ import shoponline.dao.impl.OrderDAOImpl;
 import shoponline.dao.impl.ProductDAOImpl;
 
 @Configuration
-@ComponentScan("shoponline")
+@ComponentScan("shoponline.*")
 @EnableTransactionManagement
-//Load to Environment
+// Load to Environment.
 @PropertySource("classpath:config_db_hibernate.properties")
 public class ApplicationContextConfig {
-  //The Environment class server as the property holder
-  //and stores all the properties loaded by the @PropertySource
+
+  // The Environment class serves as the property holder
+  // and stores all the properties loaded by the @PropertySource
   @Autowired
   private Environment env;
 
@@ -53,22 +54,29 @@ public class ApplicationContextConfig {
     return viewResolver;
   }
 
-  //Config for Upload.
+  // Config for Upload.
   @Bean(name = "multipartResolver")
   public CommonsMultipartResolver multipartResolver() {
     CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
+
     // Set Max Size...
     // commonsMultipartResolver.setMaxUploadSize(...);
+
     return commonsMultipartResolver;
   }
 
   @Bean(name = "dataSource")
   public DataSource getDataSource() {
     DriverManagerDataSource dataSource = new DriverManagerDataSource();
+
+    // See: ds-hibernate-cfg.properties
     dataSource.setDriverClassName(env.getProperty("ds.database-driver"));
     dataSource.setUrl(env.getProperty("ds.url"));
     dataSource.setUsername(env.getProperty("ds.username"));
     dataSource.setPassword(env.getProperty("ds.password"));
+
+    System.out.println("## getDataSource: " + dataSource);
+
     return dataSource;
   }
 
@@ -99,6 +107,7 @@ public class ApplicationContextConfig {
   @Bean(name = "transactionManager")
   public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
     HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
+
     return transactionManager;
   }
 

@@ -13,12 +13,15 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Accounts")
 public class Account implements Serializable {
+
   private static final long serialVersionUID = -2054386655979281969L;
+
   public static final String ROLE_MANAGER = "MANAGER";
   public static final String ROLE_EMPLOYEE = "EMPLOYEE";
+
   private String userName;
   private String password;
-  private boolean actine;
+  private boolean active;
   private String userRole;
 
   @Id
@@ -41,12 +44,12 @@ public class Account implements Serializable {
   }
 
   @Column(name = "Active", length = 1, nullable = false)
-  public boolean isActine() {
-    return actine;
+  public boolean isActive() {
+    return active;
   }
 
-  public void setActine(boolean actine) {
-    this.actine = actine;
+  public void setActive(boolean active) {
+    this.active = active;
   }
 
   @Column(name = "User_Role", length = 20, nullable = false)
