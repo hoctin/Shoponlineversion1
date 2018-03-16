@@ -5,7 +5,7 @@
  
 <title>Access Denied</title>
  
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/styles.css">
  
 </head>
 <body> 

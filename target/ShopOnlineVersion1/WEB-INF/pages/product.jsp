@@ -8,7 +8,7 @@
 <title>Product</title>
 
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/styles.css">
+	href="${pageContext.request.contextPath}/css/styles.css">
 
 </head>
 <body>

@@ -8,8 +8,7 @@
     <div class="header-bar">
         <c:if test="${pageContext.request.userPrincipal.name != null}">
         Hello
-           <a href="${pageContext.request.contextPath}/accountInfo">
-                ${pageContext.request.userPrincipal.name} </a>
+           <a href="${pageContext.request.contextPath}/accountInfo">${pageContext.request.userPrincipal.name} </a>
          &nbsp;|&nbsp;
            <a href="${pageContext.request.contextPath}/logout">Logout</a>
  
