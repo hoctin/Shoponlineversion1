@@ -1,9 +1,10 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8"> 
 <title>Books Shop Online</title> 
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/styles.css"> 
+<link href="<c:url value="/resources/css/styles.css" />" rel="stylesheet">
 </head>
 <body> 
    <jsp:include page="_header.jsp" />
