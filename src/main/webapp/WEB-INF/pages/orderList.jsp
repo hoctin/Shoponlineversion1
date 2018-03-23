@@ -6,8 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Product List</title>
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/styles.css">
+<link href="<c:url value="/resources/css/styles.css" />" rel="stylesheet">
 </head>
 <body>
 	<jsp:include page="_header.jsp" />
