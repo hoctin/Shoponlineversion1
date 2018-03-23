@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"> 
 <title>Books Shop Online</title> 
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles.css"> 
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/styles.css"> 
 </head>
 <body> 
    <jsp:include page="_header.jsp" />
