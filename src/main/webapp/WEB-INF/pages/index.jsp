@@ -116,71 +116,73 @@
 			</div>
 		</div>
 	</div>
-    <!-- End site branding area -->
+	<!-- End site branding area -->
 
-    <div class="mainmenu-area">
-        <div class="container">
-            <div class="row">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse"
-                        data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span> <span
-                            class="icon-bar"></span> <span class="icon-bar"></span> <span
-                            class="icon-bar"></span>
-                    </button>
-                </div>
-                <div class="navbar-collapse collapse">
-                   <jsp:include page="_menu.jsp" />
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End mainmenu area -->
+	<div class="mainmenu-area">
+		<div class="container">
+			<div class="row">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="navbar-collapse collapse">
+					<jsp:include page="_menu.jsp" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End mainmenu area -->
 
 	<div class="slider-area">
-        <!-- Slider -->
-        <div class="block-slider block-slider4">
-            <ul class="" id="bxslider-home4">
-                <li><img src="<c:url value="/resources/img/h4-slide.png"/>" alt="Slide">
-                    <div class="caption-group">
-                        <h2 class="caption title">
-                            iPhone <span class="primary">6 <strong>Plus</strong></span>
-                        </h2>
-                        <h4 class="caption subtitle">Dual SIM</h4>
-                        <a class="caption button-radius" href="#"><span class="icon"></span>Shop
-                            now</a>
-                    </div></li>
-                <li><img src="<c:url value="/resources/img/h4-slide2.png"/>"
-                    alt="Slide">
-                    <div class="caption-group">
-                        <h2 class="caption title">
-                            by one, get one <span class="primary">50% <strong>off</strong></span>
-                        </h2>
-                        <h4 class="caption subtitle">school supplies & backpacks.*</h4>
-                        <a class="caption button-radius" href="#"><span class="icon"></span>Shop
-                            now</a>
-                    </div></li>
-                <li><img src="<c:url value="/resources/img/h4-slide3.png"/>"
-                    alt="Slide">
-                    <div class="caption-group">
-                        <h2 class="caption title">
-                            Apple <span class="primary">Store <strong>Ipod</strong></span>
-                        </h2>
-                        <h4 class="caption subtitle">Select Item</h4>
-                        <a class="caption button-radius" href="#"><span class="icon"></span>Shop
-                            now</a>
-                    </div></li>
-                <li><img src="<c:url value="/resources/img/h4-slide4.png"/>"
-                    alt="Slide">
-                    <div class="caption-group">
-                        <h2 class="caption title">
-                            Apple <span class="primary">Store <strong>Ipod</strong></span>
-                        </h2>
-                        <h4 class="caption subtitle">& Phone</h4>
-                        <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
-                    </div></li>
-            </ul>
-        </div>
+		<!-- Slider -->
+		<div class="block-slider block-slider4">
+			<ul class="" id="bxslider-home4">
+				<li><img src="<c:url value="/resources/img/h4-slide.png"/>"
+					alt="Slide">
+					<div class="caption-group">
+						<h2 class="caption title">
+							iPhone <span class="primary">6 <strong>Plus</strong></span>
+						</h2>
+						<h4 class="caption subtitle">Dual SIM</h4>
+						<a class="caption button-radius" href="#"><span class="icon"></span>Shop
+							now</a>
+					</div></li>
+				<li><img src="<c:url value="/resources/img/h4-slide2.png"/>"
+					alt="Slide">
+					<div class="caption-group">
+						<h2 class="caption title">
+							by one, get one <span class="primary">50% <strong>off</strong></span>
+						</h2>
+						<h4 class="caption subtitle">school supplies & backpacks.*</h4>
+						<a class="caption button-radius" href="#"><span class="icon"></span>Shop
+							now</a>
+					</div></li>
+				<li><img src="<c:url value="/resources/img/h4-slide3.png"/>"
+					alt="Slide">
+					<div class="caption-group">
+						<h2 class="caption title">
+							Apple <span class="primary">Store <strong>Ipod</strong></span>
+						</h2>
+						<h4 class="caption subtitle">Select Item</h4>
+						<a class="caption button-radius" href="#"><span class="icon"></span>Shop
+							now</a>
+					</div></li>
+				<li><img src="<c:url value="/resources/img/h4-slide4.png"/>"
+					alt="Slide">
+					<div class="caption-group">
+						<h2 class="caption title">
+							Apple <span class="primary">Store <strong>Ipod</strong></span>
+						</h2>
+						<h4 class="caption subtitle">& Phone</h4>
+						<a class="caption button-radius" href="#"><span class="icon"></span>Shop
+							now</a>
+					</div></li>
+			</ul>
+		</div>
 		<!-- ./Slider -->
 	</div>
 	<!-- End slider area -->
@@ -226,6 +228,58 @@
 					<div class="latest-product">
 						<h2 class="section-title">Latest Products</h2>
 						<div class="product-carousel">
+
+
+
+
+							<c:forEach items="${paginationProducts.list}" var="prodInfo">
+								<div class="single-product">
+									<div class="product-f-image">
+
+										<img src="${pageContext.request.contextPath}/productImage?code=${prodInfo.code}"/>
+										<div class="product-hover">
+											<a href="#" class="add-to-cart-link"><i
+												class="fa fa-shopping-cart"></i> Add to cart</a> <a
+												href="single-product.html" class="view-details-link"><i
+												class="fa fa-link"></i> See details</a>
+										</div>
+									</div>
+									<h2>
+									   <ul>
+									       <li>${prodInfo.code}</li>
+										   <li><a href="#">${prodInfo.name}</a></li>
+									   </ul>
+									</h2>
+
+									<div class="product-carousel-price">
+										<ins>$700.00</ins>
+										<del>$100.00</del>
+									</div>
+
+									<%-- <li>Code: ${prodInfo.code}</li>
+										<li>Name: ${prodInfo.name}</li>
+										<li>Price: <fmt:formatNumber value="${prodInfo.price}"
+												type="currency" /></li>
+										<li><a
+											href="${pageContext.request.contextPath}/buyProduct?code=${prodInfo.code}">
+												Buy Now</a></li>
+										<!-- For Manager edit Product -->
+										<security:authorize access="hasRole('ROLE_MANAGER')">
+											<li><a style="color: red;"
+												href="${pageContext.request.contextPath}/product?code=${prodInfo.code}">
+													Edit Product</a></li>
+										</security:authorize> --%>
+
+
+								</div>
+							</c:forEach>
+
+
+
+
+
+
+							<%-- 
 							<div class="single-product">
 								<div class="product-f-image">
 									<img src="<c:url value="/resources/img/product-1.jpg"/>" alt="">
@@ -245,7 +299,14 @@
 									<ins>$700.00</ins>
 									<del>$100.00</del>
 								</div>
-							</div>
+							</div> --%>
+
+
+
+
+
+
+							<%-- 
 							<div class="single-product">
 								<div class="product-f-image">
 									<img src="<c:url value="/resources/img/product-2.jpg"/>" alt="">
@@ -337,7 +398,7 @@
 								<div class="product-carousel-price">
 									<ins>$400.00</ins>
 								</div>
-							</div>
+							</div> --%>
 						</div>
 					</div>
 				</div>
